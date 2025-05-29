@@ -16,7 +16,8 @@ class UserController extends Controller
         $dataUser = User::all();
         return response()->json($dataUser, 200);
     }
-    // Menampilkan user berdasarkan ID
+   
+
     public function show($id): JsonResponse
     {
         try {
@@ -27,7 +28,6 @@ class UserController extends Controller
         }
     }
 
-    // Menambahkan user baru
     public function store(Request $request): JsonResponse
     {
         $request->validate([
@@ -50,7 +50,6 @@ class UserController extends Controller
         ], 201);
     }
 
-    // Mengupdate data user
     public function update(Request $request, $id): JsonResponse
     {
         try {
@@ -63,7 +62,7 @@ class UserController extends Controller
                 'password' => 'sometimes|string|min:8',
             ]);
 
-            // Hanya update field yang dikirim
+        
             $data = $request->only(['name', 'email', 'password','username']);
             if (isset($data['password'])) {
                 $data['password'] = bcrypt($data['password']);

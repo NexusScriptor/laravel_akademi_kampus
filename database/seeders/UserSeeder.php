@@ -10,15 +10,13 @@ use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
+    
     public function run(): void
     {
         User::create([
-            'name' => 'Admin',
-            'username' => 'admin',
-            'email' => 'admin@ifump.net',
+            'name' => 'Molyadi',
+            'username' => 'molyadi12',
+            'email' => 'molyadi@gmail.com',
             'password' => Hash::make('password')
         ]);
     }
